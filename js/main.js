@@ -83,6 +83,8 @@ navIcon.addEventListener('click', function() {
 
 // AR model
 
+
+
   (() => {
 
   const model = document.querySelector("#model");
@@ -92,8 +94,10 @@ navIcon.addEventListener('click', function() {
     {
       title: "Noise-cancelling microphones",
       text: "Noise-cancelling microphones and a rear copper shield are optimally placed to quickly detect outside noises, working together to counter noise before it disturbs your experience.",
-      image: "../images/noise-cancelling-microphones.png"
+      image: "../images/earphone-rubbers.png"
     }
+
+    
 
   ]
 
@@ -139,7 +143,7 @@ navIcon.addEventListener('click', function() {
     gsap.to(selected, 1, { autoAlpha: 0 });
   }
   
-  //Event Listener
+ 
   model.addEventListener("load", modelLoaded);
 
   hotspots.forEach(function (hotspot) {
@@ -150,6 +154,9 @@ navIcon.addEventListener('click', function() {
 
   
 
+
+
+// colour
 
   let cont = document.querySelector(".img-carousel");
 
@@ -184,7 +191,6 @@ navIcon.addEventListener('click', function() {
         dragging = false,
         min = 0,
         max = imageCon.offsetWidth;
-        //The HTMLElement.offsetWidth read-only property returns the layout width of an element. 
     
     function onDown() {
       dragging = true;
@@ -197,17 +203,14 @@ navIcon.addEventListener('click', function() {
     function onMove(event) {
       if(dragging===true) {
         var x = event.clientX - imageCon.getBoundingClientRect().left;
-        //The MouseEvent.clientX read-only property provides the horizontal coordinate within the application's client area at which the event occurred
-        //The Element.getBoundingClientRect() method returns the size of an element and its position relative to the viewport.
-        //X-coordinate, relative to the viewport origin, of the left of the rectangle box. Read only
         console.log(event.clientX);
         console.log(imageCon.getBoundingClientRect().left);
-      //need logic to keep slider in box
-        if(x < min) { //if x less than 0
-          x = min;    //set x = 0
+      
+        if(x < min) { 
+          x = min;   
         }
-       else if(x > max) { //otherwise if x is greater than 900
-          x = max-4; //set x to equal the max width minus 2 (width of slider)
+       else if(x > max) { 
+          x = max-4; 
         }
         drag.style.left = x + 'px';
         left.style.width = x + 'px';
@@ -215,22 +218,12 @@ navIcon.addEventListener('click', function() {
     }
     
     drag.addEventListener('mousedown', onDown, false); 
-    //add listener to actual drag div, if user clicks on it
-    //drag.addEventListener('touchstart', onDown);
     document.body.addEventListener('mouseup', onUp, false);
-    //document.body.addEventListener('mo', onUp);
     document.body.addEventListener('mousemove', onMove, false);
-    //document.body.addEventListener('touchmove', onMove);
-    
     })();
     
     
-    /*231-187.5 = 43.5.  43.5 is how much of the car is left showing*/
-    
-    /*
-    The MouseEvent.clientX read-only property provides the horizontal coordinate within the application's client area at which the event occurred (as opposed to the coordinates within the page). For example, clicking in the top-left corner of the client area will always result in a mouse event with a clientX value of 0, regardless of whether the page is scrolled horizontally.
-    */
-
+   
   
 })();
   

@@ -1,20 +1,12 @@
-body {
-  font-family: "Montserrat", sans-serif;
-  background-color: #F9E8D9;
-}
-
-.box-color-1 {
-  background-color: #7E3231;
-}
-
-.box-color-2 {
-  background-color: #A56B6A;
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #F9E8D9;
 }
 
 #main-header {
@@ -147,7 +139,7 @@ ul li a {
 }
 
 #hero-txt p {
-  font-size: 80px;
+  font-size: 20px;
   color: #25242E;
 }
 
@@ -469,10 +461,6 @@ model-viewer > #ar-prompt > img {
 
 #outerShell {
   display: none;
-}
-
-.logo {
-  width: 20px;
 }
 
 @media screen and (min-width: 768px) {
