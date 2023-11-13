@@ -147,12 +147,12 @@ ul li a {
 }
 
 #hero-txt p {
-  font-size: 10px;
+  font-size: 80px;
   color: #25242E;
 }
 
 #hero-txt h2 {
-  font-size: 110px;
+  font-size: 180px;
   line-height: 0.9;
   font-weight: 1000;
 }
@@ -243,9 +243,236 @@ h3 {
   object-fit: cover;
 }
 
-#explode-view {
+.col-span-full {
+  width: 100%;
   max-width: 100%;
-  /* width: 100vw; */
+  height: auto;
+  position: relative;
+}
+
+#explode-view {
+  display: block;
+  width: 100%;
+}
+
+#advertisement {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#ad-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#ar-earbud {
+  margin-top: 50px;
+  background-color: white;
+  font-weight: 1000;
+}
+
+#top-title {
+  text-align: center;
+  padding: 10px;
+  color: #25242E;
+  font-size: 40px;
+  opacity: 20%;
+  padding-top: 30px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+model-viewer {
+  width: auto;
+  max-width: 1200px;
+  background-color: #ffffff;
+  height: 768px;
+  margin: 0 auto;
+}
+
+.Hotspot {
+  background: url(../images/hotspot.svg) center no-repeat;
+  border: 0px;
+  width: 45px;
+  height: 38px;
+  display: none;
+  transition: all 1s ease-in-out;
+}
+
+.Hotspot:not([data-visible]) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.HotspotAnnotation {
+  visibility: hidden;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  color: rgba(0, 0, 0, 0.8);
+  display: block;
+  font-family: Futura, Helvetica Neue, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  left: calc(100% + 1em);
+  max-width: 128px;
+  overflow-wrap: break-word;
+  padding: 0.5em 1em;
+  position: absolute;
+  top: 50%;
+  width: max-content;
+}
+
+.Hotspot:not([data-visible]) > * {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(calc(-50% + 4px));
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.progress-bar {
+  display: block;
+  width: 33%;
+  height: 10%;
+  max-height: 2%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  border-radius: 25px;
+  box-shadow: 0px 3px 10px 3px rgba(0, 0, 0, 0.5), 0px 0px 5px 1px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.progress-bar.hide {
+  visibility: hidden;
+  transition: visibility 0.3s;
+}
+
+.update-bar {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 0%;
+  height: 100%;
+  border-radius: 25px;
+  float: left;
+  transition: width 0.3s;
+}
+
+.HotspotAnnotation p {
+  color: #333;
+  line-height: 22px;
+  font-weight: 300;
+}
+
+.HotspotAnnotation h2 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+#ar-button {
+  background-image: url(../images/ar_icon.png);
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  background-position: 12px 50%;
+  background-color: #fff;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  bottom: 16px;
+  padding: 0px 16px 0px 40px;
+  font-family: Roboto Regular, Helvetica Neue, sans-serif;
+  font-size: 14px;
+  color: #4285f4;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 18px;
+  border: 1px solid #DADCE0;
+}
+
+#ar-button:active {
+  background-color: #E8EAED;
+}
+
+#ar-button:focus {
+  outline: none;
+}
+
+#ar-button:focus-visible {
+  outline: 1px solid #4285f4;
+}
+
+@keyframes circle {
+  from {
+    transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(360deg) translateX(50px) rotate(-360deg);
+  }
+}
+@keyframes elongate {
+  from {
+    transform: translateX(100px);
+  }
+  to {
+    transform: translateX(-100px);
+  }
+}
+model-viewer > #ar-prompt {
+  position: absolute;
+  left: 50%;
+  bottom: 60px;
+  animation: elongate 2s infinite ease-in-out alternate;
+  display: none;
+}
+
+model-viewer[ar-status=session-started] > #ar-prompt {
+  display: block;
+}
+
+model-viewer > #ar-prompt > img {
+  animation: circle 4s linear infinite;
+}
+
+#color-sec {
+  overflow: hidden;
+  position: relative;
+  background: fixed;
+}
+
+#color-sec .grid-con section {
+  flex: 0 0 auto;
+  height: 375px;
+}
+
+.img-carousel {
+  display: flex;
+  gap: 16px;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.img-carousel img {
+  height: auto;
+  max-width: 1400px;
+  max-height: 768px;
+  object-fit: cover;
+  scroll-snap-align: start;
+}
+
+#outerShell {
+  display: none;
+}
+
+.logo {
+  width: 20px;
 }
 
 @media screen and (min-width: 768px) {
@@ -423,10 +650,17 @@ h3 {
     width: 40px; /* Adjust the size of the icons */
     margin-right: 50px; /* Adjust the distance between icons */
   }
-  #color-sec {
-    background-color: #25242E;
-    margin-top: 30px;
-    height: 768px;
+  #advertisement {
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #ad-img img {
+    width: 1400px;
+    height: 100;
+    object-fit: cover;
   }
   :not(:defined) > * {
     display: none;
@@ -610,5 +844,47 @@ h3 {
     max-height: 768px;
     object-fit: cover;
     scroll-snap-align: start;
+  }
+  .x-ray-title {
+    font-size: 8em; /* Adjust the font size as needed */
+    text-align: center; /* Center the text if needed */
+    color: transparent; /* Set the color to your desired outerline color */
+    -webkit-text-stroke: 1px black; /* Add a white stroke around the text */
+    margin: 50px auto; /* Remove default margin for better spacing */
+    padding: 10px;
+  }
+  #mobile-tablet-view {
+    display: none;
+  }
+  #outerShell {
+    display: block;
+    max-width: 1200px;
+    margin: auto;
+    border: solid 1px #666;
+  }
+  #imageCon {
+    position: relative;
+    max-width: 1200px;
+    height: 90vh;
+  }
+  .slideImage {
+    position: absolute; /*images are stacked in order via absolute*/
+    left: 0;
+    right: 0;
+    height: 100vh;
+  }
+  .image-right {
+    background: url(../images/earbud-xray.jpg) no-repeat;
+    background-size: cover;
+  }
+  .image-left {
+    background: url(../images/earbud-normal.jpg) no-repeat;
+    background-size: cover;
+  }
+  .image-drag {
+    background-color: #666;
+    left: 50%; /*match up with image left*/
+    width: 4px; /*orig 49*/
+    cursor: pointer;
   }
 }
